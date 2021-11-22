@@ -13,9 +13,9 @@ function processaDownloads() {
 	fwrite($log, "Count;PostID;FileUrl;FileSize;FileType\n");
 
 	$args = array(
-		"posts_per_page"    => "-1",
+		"posts_per_page"    => "1",
 		"post_status"       => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash') ,
-		// "include"			=> 39166,
+		// "include"			=> 42912,
 		'meta_query' => array(
 			'relation' => 'OR',
 			array( 
@@ -29,6 +29,7 @@ function processaDownloads() {
 		),
 	);
 	$posts = get_posts($args);
+	$count = 0;
 	
 	echo "\n\n";
 	echo "POSTS A PROCESSAR: ". count($posts);
@@ -78,7 +79,27 @@ function processaDownloads() {
 			continue;
 		}
 
-		$msg = $count ." - ". $post->ID ." - ". $fileUrl ." - ". getFileSize( $fileUrl, $post->ID )[0] ." - ". getFileSize( $fileUrl, $post->ID )[1] ."\n";
+		$fileInfo = getFileSize( $fileUrl, $post->ID );
+		
+		$msg = $count ." - ". $post->ID ." - ". $fileUrl ." - ". $fileInfo[0] ." - ". $fileInfo[1] ."\n";
+
+		$file = array(
+			'name' 		=> $post->post_title,
+			'format'	=> $fileInfo[1],
+			'size'		=> $fileInfo[0],
+			'link'		=> $fileUrl
+		);
+
+		// $result = add_row('downloads', $file, $post->ID);
+		// $result = acf_get_field('downloads');
+		// update_field('downloads', 0, $file, 42912);
+
+		
+		
+
+		$result = get_field('downloads_kits', 42924);
+		die(var_dump($result));
+
 
 		echo $msg;
 		ob_flush();
@@ -130,5 +151,5 @@ function getFileSize( $fileUrl, $postID ){
 function formatBytes( $bytes, $precision = 2 ) {
 	$unit = ["B", "KB", "MB", "GB"];
 	$exp = floor(log($bytes, 1024)) | 0;
-	return round($bytes / (pow(1024, $exp)), $precision).$unit[$exp];
+	return round($bytes / (pow(1024, $exp)), $precision);
 }

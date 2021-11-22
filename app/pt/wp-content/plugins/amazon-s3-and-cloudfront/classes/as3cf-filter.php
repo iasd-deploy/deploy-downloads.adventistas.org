@@ -849,7 +849,7 @@ abstract class AS3CF_Filter {
 	 * @return string
 	 */
 	public static function remove_aws_query_strings( $content, $base_url = '' ) {
-		$pattern = '\?[^\s"<\?]*(?:X-Amz-Algorithm|AWSAccessKeyId|Key-Pair-Id)=[^\s"<\?]+';
+		$pattern = '\?[^\s"<\?]*(?:X-Amz-Algorithm|AWSAccessKeyId|Key-Pair-Id|GoogleAccessId)=[^\s"<\?]+';
 		$group   = 0;
 
 		if ( ! is_string( $content ) ) {
@@ -954,13 +954,22 @@ abstract class AS3CF_Filter {
 			$uploads     = wp_upload_dir();
 			$base_url    = AS3CF_Utils::remove_scheme( $uploads['baseurl'] );
 			$orig_domain = AS3CF_Utils::parse_url( $base_url, PHP_URL_HOST );
-			$domains[]   = $orig_domain;
-			$base_urls[] = $base_url;
+			$port        = AS3CF_Utils::parse_url( $base_url, PHP_URL_PORT );
+			if ( ! empty( $port ) ) {
+				$orig_domain .= ':' . $port;
+			}
+
+			$domains[] = $orig_domain;
+			$base_urls = array( $base_url );
 
 			// Current domain and path after potential domain mapping.
 			$base_url    = $this->as3cf->maybe_fix_local_subsite_url( $uploads['baseurl'] );
 			$base_url    = AS3CF_Utils::remove_scheme( $base_url );
 			$curr_domain = AS3CF_Utils::parse_url( $base_url, PHP_URL_HOST );
+			$port        = AS3CF_Utils::parse_url( $base_url, PHP_URL_PORT );
+			if ( ! empty( $port ) ) {
+				$curr_domain .= ':' . $port;
+			}
 
 			if ( $curr_domain !== $orig_domain ) {
 				$domains[] = $curr_domain;

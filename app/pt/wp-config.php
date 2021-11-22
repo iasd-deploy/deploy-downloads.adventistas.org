@@ -16,7 +16,7 @@
 
 /// ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', "downloads_es");
+define('DB_NAME', "downloads_pt");
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -25,7 +25,7 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost:3306');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -53,7 +53,7 @@ define('WP_ALLOW_MULTISITE', true);
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', false);
 define('DOMAIN_CURRENT_SITE', 'downloads.adventistas.org');
-define('PATH_CURRENT_SITE', '/es/');
+define('PATH_CURRENT_SITE', '/pt/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
 
@@ -109,7 +109,7 @@ define('WPLANG', 'pt_BR');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /** Enable Cache */
  // Added by WP Rocket
