@@ -3,10 +3,12 @@
 /** 
  * 
  *	PARA LIMPAR OS POSTS ANTES:
- *	wp post delete $(wp post list --post_type='post' --post_status=draft --format=ids) --force && wp post delete $(wp post list --post_type='post' --post_status=private --format=ids) --force && wp post delete $(wp post list --post_type='post' --post_status=pending --format=ids) --force
+ *	wp post delete $(wp post list --post_type='post' --post_status=draft --format=ids) --force && wp post delete $(wp post list --post_type='post' --post_status=private --format=ids) --force && wp post delete $(wp post list --post_type='post' --post_status=pending --format=ids) --force && wp post delete $(wp post list --post_type='post' --post_status=trash --format=ids) --force
  *
  *	PARA EXECUTAR O SCRIPT, RODE NO TERMINAL (com wpcli instalado): 
  * 	wp eval-file processaDownloads.php 1 2
+ * 
+ * sudo wp eval-file processaDownloads.php 1 500 --allow-root
 
  */
 
@@ -29,19 +31,18 @@ function processaDownloads($page = 1, $per_page = 5)
 	$args = array(
 		"posts_per_page"    => $per_page,
 		"paged"				=> $page,
-		"post_status"       => array('publish'),
-		// "include"			=> 37838,
-		// 'meta_query' => array(
-		// 	'relation' => 'OR',
-		// 	array(
-		// 		'key' => 'post_processed',
-		// 		'value' => false
-		// 	),
-		// 	array(
-		// 		'key' => 'post_processed',
-		// 		'compare' => 'NOT EXISTS'
-		// 	)
-		// ),
+		"post_status"       => array('publish', 'draft'),
+		'meta_query' => array(
+			'relation' => 'OR',
+			array(
+				'key' => 'post_processed',
+				'value' => false
+			),
+			array(
+				'key' => 'post_processed',
+				'compare' => 'NOT EXISTS'
+			)
+		),
 		'orderby' => 'date',
 		'order'   => 'DESC'
 	);
@@ -136,14 +137,14 @@ function processaDownloads($page = 1, $per_page = 5)
 
 		echo $msg;
 
-		// if ($fileInfo[0] == "" || $fileInfo[1] == "") {
+		if ($fileInfo[0] == "" || $fileInfo[1] == "") {
 
-		// 	echo "Enviado para rascunho... \n";
-		// 	wp_update_post(array('ID' => $post->ID, 'post_status' => 'draft'));
-		// 	continue;
-		// }
+			echo "Enviado para rascunho... \n";
+			wp_update_post(array('ID' => $post->ID, 'post_status' => 'draft'));
+			continue;
+		}
 
-		// $result = add_row('downloads', $file, $post->ID);
+		$result = add_row('downloads', $file, $post->ID);
 
 
 
