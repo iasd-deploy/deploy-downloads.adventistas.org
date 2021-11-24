@@ -13,9 +13,9 @@ function processaDownloads() {
 	fwrite($log, "Count;PostID;FileUrl;FileSize;FileType\n");
 
 	$args = array(
-		"posts_per_page"    => "1",
+		"posts_per_page"    => "-1",
 		"post_status"       => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash') ,
-		// "include"			=> 42912,
+		// "include"			=> 37838,
 		'meta_query' => array(
 			'relation' => 'OR',
 			array( 
@@ -27,6 +27,8 @@ function processaDownloads() {
 				'compare' => 'NOT EXISTS'
 			)
 		),
+		'orderby' => 'date',
+		'order'   => 'DESC'
 	);
 	$posts = get_posts($args);
 	$count = 0;
@@ -61,9 +63,22 @@ function processaDownloads() {
 				update_post_meta($post->ID, 'dp_file_url', $fileUrl);
 				break;
 
-			case ( strpos($fileUrl, "cloud.ansc.org.br") || strpos($fileUrl, "cloud.ac.org.br") || strpos($fileUrl, "cloud.aopr.org.br") || strpos($fileUrl, "cloud.iap.org.br") || strpos($fileUrl, "cloud.mosr.org.br") || strpos($fileUrl, "cloud.anp.org.br") || strpos($fileUrl, "cloud.asp.org.br") || strpos($fileUrl, "cloud.acpr.org.br") || strpos($fileUrl, "cloud.asr.org.br") ):
+			case ( 	strpos($fileUrl, "cloud.ansc.org.br") || 
+					strpos($fileUrl, "cloud.ac.org.br") || 
+					strpos($fileUrl, "cloud.aopr.org.br") || 
+					strpos($fileUrl, "cloud.iap.org.br") || 
+					strpos($fileUrl, "cloud.mosr.org.br") || 
+					strpos($fileUrl, "cloud.anp.org.br") || 
+					strpos($fileUrl, "cloud.asp.org.br") || 
+					strpos($fileUrl, "cloud.acpr.org.br") || 
+					strpos($fileUrl, "cloud.asr.org.br") ):
 				$fileUrl = str_replace( 'http://', 'https://', $fileUrl) ."/download";
 				update_post_meta($post->ID, 'dp_file_url', $fileUrl);
+				break;
+
+			case ( strpos($fileUrl, "www.daniellocutor.com.br/?download=") == true ):
+				$fileID = explode("ccount=", parse_url($fileUrl, PHP_URL_QUERY))[1];
+				$fileUrl = $fileID;
 				break;
 
 			case ( strpos($fileUrl, "drive.google.com") == true ):
@@ -75,14 +90,24 @@ function processaDownloads() {
 		}
 
 		// Pula links do google que são do tipo folder
-		if ( strpos($fileUrl, "drive.google.com/") == true && strpos($fileUrl, "folder") == true ){
-			continue;
-		}
+		// if ( strpos($fileUrl, "drive.google.com/") == true && strpos($fileUrl, "folder") == true ){
+		// 	continue;
+		// }
 
-		$fileInfo = getFileSize( $fileUrl, $post->ID );
+		$post_content = get_post_field('post_content', $post->ID);
+		$post_content = str_replace('<!-- wp:heading {"level":1} -->', '<!-- wp:paragraph -->', $post_content);
+		$post_content = str_replace('<!-- wp:heading {"level":2} -->', '<!-- wp:paragraph -->', $post_content);
+		$post_content = str_replace('<!-- wp:heading {"level":3} -->', '<!-- wp:paragraph -->', $post_content);
+		$post_content = str_replace('<!-- wp:heading {"level":4} -->', '<!-- wp:paragraph -->', $post_content);
+		$post_content = str_replace('<!-- wp:heading {"level":5} -->', '<!-- wp:paragraph -->', $post_content);
+		$post_content = str_replace('<!-- wp:heading {"level":6} -->', '<!-- wp:paragraph -->', $post_content);
+		$post_content = str_replace('<!-- /wp:heading -->', '<!-- /wp:paragraph -->', $post_content);
+		$post_content = preg_replace('#<h[1-6]>(.*?)</h[1-6]>#si', '<p>${1}</p>', $post_content);
+		$post->post_content = $post_content;
+		wp_update_post( $post );
+
+		$fileInfo = getFileInfo( $fileUrl );
 		
-		$msg = $count ." - ". $post->ID ." - ". $fileUrl ." - ". $fileInfo[0] ." - ". $fileInfo[1] ."\n";
-
 		$file = array(
 			'name' 		=> $post->post_title,
 			'format'	=> $fileInfo[1],
@@ -90,15 +115,11 @@ function processaDownloads() {
 			'link'		=> $fileUrl
 		);
 
-		// $result = add_row('downloads', $file, $post->ID);
+		$result = add_row('downloads', $file, $post->ID);
 		// $result = acf_get_field('downloads');
 		// update_field('downloads', 0, $file, 42912);
 
-		
-		
-
-		$result = get_field('downloads_kits', 42924);
-		die(var_dump($result));
+		$msg = $count ." - ". $fileInfo[1] ." - ". $post->ID ." - ". $fileUrl ." - ". $fileInfo[0] ."\n";
 
 
 		echo $msg;
@@ -110,7 +131,7 @@ function processaDownloads() {
 	}
 }
 
-function getFileSize( $fileUrl, $postID ){
+function getFileInfo( $fileUrl ){
 
 	if($fileUrl){
 
@@ -128,8 +149,14 @@ function getFileSize( $fileUrl, $postID ){
 			$fileType = $headers['Content-Type'];
 			
 			switch(true){
-				case (strpos($fileType, 'presentation') || strpos($fileType, 'powerpoint') || strpos($fileType, 'photoshop') || strpos($fileType, 'word') || strpos($fileType, 'octet-stream') || strpos($fileType, 'rar')):
+				case (strpos($fileType, 'presentation') || strpos($fileType, 'powerpoint') || strpos($fileType, 'photoshop') || strpos($fileType, 'octet-stream') || strpos($fileType, 'rar') || strpos($fileType, 'quicktime') || strpos($fileType, 'vnd.wave')):
 					$fileType = end( explode( ".", $fileUrl ) );
+					break;
+				case (strpos($fileType, 'word')):
+					$fileType = 'doc';
+					break;
+				case (strpos($fileType, 'sheet')):
+					$fileType = 'xls';
 					break;
 				case (strpos($headers['Content-Type'], 'html')):
 					$fileType = NULL;
@@ -149,7 +176,5 @@ function getFileSize( $fileUrl, $postID ){
 }
 
 function formatBytes( $bytes, $precision = 2 ) {
-	$unit = ["B", "KB", "MB", "GB"];
-	$exp = floor(log($bytes, 1024)) | 0;
-	return round($bytes / (pow(1024, $exp)), $precision);
+	return number_format($bytes / 1000000, $precision);;
 }

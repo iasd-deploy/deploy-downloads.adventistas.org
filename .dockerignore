@@ -1,0 +1,10 @@
+**/*.DS_Store
+.github
+task-definition.json
+**/*.git
+# **/*.e*
+//*.sh
+
+**/pa-theme*
+
+**/node_modules

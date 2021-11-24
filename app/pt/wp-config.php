@@ -16,16 +16,16 @@
 
 /// ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', "downloads_pt");
+define( 'DB_NAME', $_ENV['WP_DB_NAME'] ."_pt");
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define( 'DB_USER', $_ENV['WP_DB_USER']);
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define( 'DB_PASSWORD', $_ENV['WP_DB_PASSWORD']);
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define( 'DB_HOST', $_ENV['WP_DB_HOST'] .':3306');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -109,7 +109,7 @@ define('WPLANG', 'pt_BR');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /** Enable Cache */
  // Added by WP Rocket
