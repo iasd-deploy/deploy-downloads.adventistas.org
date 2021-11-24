@@ -139,12 +139,13 @@ function processaDownloads($page = 1, $per_page = 5)
 
 		if ($fileInfo[0] == "" || $fileInfo[1] == "") {
 
+			update_post_meta($post->ID, "post_processed", true);
 			echo "Enviado para rascunho... \n";
 			wp_update_post(array('ID' => $post->ID, 'post_status' => 'draft'));
 			continue;
 		}
 
-		$result = add_row('downloads', $file, $post->ID);
+		add_row('downloads', $file, $post->ID);
 
 
 
