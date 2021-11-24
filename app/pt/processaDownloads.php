@@ -2,12 +2,19 @@
 
 /** 
 	PARA EXECUTAR O SCRIPT, RODE NO TERMINAL (com wpcli instalado): 
- 	wp eval-file processaDownloads.php
+ 	wp eval-file processaDownloads.php 1 2
  */
 
-processaDownloads();
+$page = $args[0];
+$per_page = $args[1];
 
-function processaDownloads()
+echo "\n\nPágina: " . $page . "\n";
+echo "Qunatidade por página: " . $per_page . "\n";
+
+
+processaDownloads($page, $per_page);
+
+function processaDownloads($page = 1, $per_page = 5)
 {
 	ob_start();
 
@@ -15,20 +22,21 @@ function processaDownloads()
 	fwrite($log, "Count;PostID;FileUrl;FileSize;FileType\n");
 
 	$args = array(
-		"posts_per_page"    => "-1",
+		"posts_per_page"    => $per_page,
+		"paged"				=> $page,
 		"post_status"       => array('publish'),
 		// "include"			=> 37838,
-		'meta_query' => array(
-			'relation' => 'OR',
-			array(
-				'key' => 'post_processed',
-				'value' => false
-			),
-			array(
-				'key' => 'post_processed',
-				'compare' => 'NOT EXISTS'
-			)
-		),
+		// 'meta_query' => array(
+		// 	'relation' => 'OR',
+		// 	array(
+		// 		'key' => 'post_processed',
+		// 		'value' => false
+		// 	),
+		// 	array(
+		// 		'key' => 'post_processed',
+		// 		'compare' => 'NOT EXISTS'
+		// 	)
+		// ),
 		'orderby' => 'date',
 		'order'   => 'DESC'
 	);
@@ -123,14 +131,14 @@ function processaDownloads()
 
 		echo $msg;
 
-		if ($fileInfo[0] == "" || $fileInfo[1] == "") {
+		// if ($fileInfo[0] == "" || $fileInfo[1] == "") {
 
-			echo "Enviado para rascunho... \n";
-			wp_update_post(array('ID' => $post->ID, 'post_status' => 'draft'));
-			continue;
-		}
+		// 	echo "Enviado para rascunho... \n";
+		// 	wp_update_post(array('ID' => $post->ID, 'post_status' => 'draft'));
+		// 	continue;
+		// }
 
-		$result = add_row('downloads', $file, $post->ID);
+		// $result = add_row('downloads', $file, $post->ID);
 
 
 
