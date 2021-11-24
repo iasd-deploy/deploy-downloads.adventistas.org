@@ -1,8 +1,13 @@
 <?php
 
 /** 
-	PARA EXECUTAR O SCRIPT, RODE NO TERMINAL (com wpcli instalado): 
- 	wp eval-file processaDownloads.php 1 2
+ * 
+ *	PARA LIMPAR OS POSTS ANTES:
+ *	wp post delete $(wp post list --post_type='post' --post_status=draft --format=ids) --force && wp post delete $(wp post list --post_type='post' --post_status=private --format=ids) --force && wp post delete $(wp post list --post_type='post' --post_status=pending --format=ids) --force
+ *
+ *	PARA EXECUTAR O SCRIPT, RODE NO TERMINAL (com wpcli instalado): 
+ * 	wp eval-file processaDownloads.php 1 2
+
  */
 
 $page = $args[0];
