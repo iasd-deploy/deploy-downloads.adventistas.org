@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Really Simple SSL - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-23 10:11:46+0000\n"
+"PO-Revision-Date: 2021-11-26 10:48:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,14 @@ msgstr ""
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Really Simple SSL - Stable (latest release)\n"
+
+#: grid/templates/tips-tricks.php:55
+msgid "Install a Let's Encrypt SSL Certificate with Really Simple SSL"
+msgstr "Instala un certificado SSL de Let's Encrypt con Really Simple SSL"
+
+#: class-site-health.php:76
+msgid "Your website does not send all recommended security headers."
+msgstr "Tu web no envía todas las cabeceras de seguridad recomendadas."
 
 #: class-site-health.php:58 class-site-health.php:102
 msgid "Security"
