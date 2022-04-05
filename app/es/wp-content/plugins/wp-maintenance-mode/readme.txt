@@ -1,13 +1,13 @@
-=== WP Maintenance Mode ===
-Contributors: Designmodo
-Plugin Name: WP Maintenance Mode
-Plugin URI: https://designmodo.com/
-Author: Designmodo
-Author URI: https://designmodo.com/
+=== WP Maintenance Mode & Coming Soon===
+Contributors: Themeisle
+Plugin Name: WP Maintenance Mode & Coming Soon
+Plugin URI: https://themeisle.com/
+Author: Themeisle
+Author URI: https://themeisle.com/
 Tags: maintenance mode, admin, administration, unavailable, coming soon, multisite, landing page, under construction, contact form, subscribe, countdown
 Requires at least: 3.5
-Tested up to: 5.8
-Stable tag: 2.4.1
+Tested up to: 5.9
+Stable tag: trunk
 Requires PHP: 5.6
 License: GPL-2.0+
 
@@ -17,9 +17,9 @@ Adds a splash page to your site that lets visitors know your site is down for ma
 
 Add a maintenance page to your blog that lets visitors know your blog is down for maintenance, or add a coming soon page for a new website. User with admin rights gets full access to the blog including the front end.
 
-Activate the plugin and your blog is in maintenance-mode, works and only registered users with enough rights can see the front end. You can use a date with a countdown timer for visitor information or set a value and unit for information. 
+Activate the plugin and your blog is in maintenance-mode, works and only registered users with enough rights can see the front end. You can use a date with a countdown timer for visitor information or set a value and unit for information.
 
-Also works with WordPress Multisite installs (each blog from the network has it's own maintenance settings).
+Also works with WordPress Multisite installs (each blog from the network has its own maintenance settings).
 
 = Features =
 
@@ -44,7 +44,19 @@ Please give us feedback, contribute and file technical bugs on [GitHub Repo](htt
 
 = Credits =
 
-Developed by [Designmodo](https://designmodo.com)
+Developed by [Themeisle](https://themeisle.com)
+
+= What's Next =
+
+If you like this plugin, then consider checking out our other projects:
+
+* <a href="https://optimole.com/">Optimole</a> - Optimole is your all-in-one image optimization solution for WordPress & beyond.
+* <a href="https://revive.social/">Revive Social</a> - Revive Old Posts helps you keep your content alive and in front the audiences that matter.
+* <a href="https://www.codeinwp.com/">CodeinWP</a> - CodeinWP stands for all-things-WordPress. From web design to freelancing and from development to business, your questions are covered.
+* <a href="https://domainwheel.com">DomainWheel</a> - Free Short Website name generator, with the help of AI, for instant ideas.
+
+
+Check-out <a href="https://themeisle.com/blog/" title="Themeisle blog">our blog</a> to learn from our <a href="https://themeisle.com/blog/category/wordpress/reviews/" title="WordPress Reviews">WordPress Reviews</a> and see other <a href="https://themeisle.com/blog/category/wordpress-plugins/" title="WordPress Plugins Comparisons">WordPress plugins</a>.
 
 == Installation ==
 
@@ -66,8 +78,8 @@ Developed by [Designmodo](https://designmodo.com)
 
 == Frequently Asked Questions ==
 
-= How to use plugin filters = 
-Check out our [Snippet Library](https://github.com/WP-Maintenance-Mode/Snippet-Library/).
+= How to use plugin filters =
+Check out our [Snippet Library](https://github.com/codeinwp/Snippet-Library/).
 
 = Cache Plugin Support =
 WP Maintenance Mode can be unstable due to the cache plugins; we recommend deactivating any cache plugin when maintenance mode is active. If you **really** want to use a cache plugin, make sure you delete the entire cache after each change.
@@ -78,6 +90,26 @@ If you change your login url, please add the new slug (url: http://domain.com/ne
 Notice: `wp-cron.php` is excluded by default.
 
 == Changelog ==
+
+##### [Version 2.4.4](https://github.com/Codeinwp/wp-maintenance-mode/compare/v2.4.3...v2.4.4) (2022-02-10)
+
+Update dependencies
+
+
+
+
+##### [Version 2.4.3](https://github.com/Codeinwp/wp-maintenance-mode/compare/v2.4.2...v2.4.3) (2022-01-27)
+
+- Change ownership to Themeisle
+
+
+
+
+= 2.4.2 (18/01/2022) =
+* Misc: 900 000 Active Installs Celebrations!
+* Misc: WordPress 5.9 compatibility
+* Fix: jQuery UI CSS theme reference from jQuery CDN
+* Misc: Text fixes in the dashboard
 
 = 2.4.1 (20/07/2021) =
 * Misc: WordPress 5.8 compatibility

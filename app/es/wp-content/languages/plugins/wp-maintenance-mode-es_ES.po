@@ -1,19 +1,27 @@
-# Translation of Plugins - WP Maintenance Mode - Stable (latest release) in Spanish (Spain)
-# This file is distributed under the same license as the Plugins - WP Maintenance Mode - Stable (latest release) package.
+# Translation of Plugins - WP Maintenance Mode &amp; Coming Soon - Development (trunk) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - WP Maintenance Mode &amp; Coming Soon - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-14 08:20:29+0000\n"
+"PO-Revision-Date: 2022-01-28 07:04:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: es\n"
-"Project-Id-Version: Plugins - WP Maintenance Mode - Stable (latest release)\n"
+"Project-Id-Version: Plugins - WP Maintenance Mode &amp; Coming Soon - Development (trunk)\n"
 
-#: views/sidebar.php:36
-msgid "Recommended"
-msgstr "Recomendado"
+#. Author URI of the plugin
+msgid "https://themeisle.com/"
+msgstr "https://themeisle.com/"
+
+#. Author of the plugin
+msgid "Themeisle"
+msgstr "Themeisle"
+
+#. Plugin Name of the plugin
+msgid "WP Maintenance Mode & Coming Soon"
+msgstr "WP Maintenance Mode & Coming Soon"
 
 #: views/maintenance.php:190
 msgctxt "contact form"
@@ -24,18 +32,6 @@ msgstr "He leído y estoy de acuerdo con la política de privacidad del sitio"
 msgctxt "subscribe form"
 msgid "I've read and agree with the site's privacy policy"
 msgstr "He leído y estoy de acuerdo con la política de privacidad del sitio"
-
-#: views/promo-blocksy.php:17
-msgid "Download for Free Now"
-msgstr "Descárgalo gratis ahora"
-
-#: views/promo-blocksy.php:13
-msgid "A blazing fast and lightweight WordPress theme built with the latest web technologies. It was built with the Gutenberg editor in mind and has a lot of options that makes it extendable and customizable."
-msgstr "Un tema para WordPress, rápido y ligero, creado con las últimas tecnologías web. Se ha creado pensando en el editor Gutenberg y tiene un montón de opciones que lo hacen ampliable y personalizable."
-
-#: views/promo-blocksy.php:10
-msgid "Blocksy - The Most Innovative & Lightning Fast WordPress Theme"
-msgstr "Blocksy - El tema más innovador y rápido para WordPress"
 
 #: views/settings.php:861
 msgid "REMEMBER: In order to make the privacy policy page accessible you need to add it in General -> Exclude."
@@ -130,6 +126,21 @@ msgstr "Ver los shortcodes disponibles"
 msgid "Hide available shortcodes"
 msgstr "Ocultar los shortcodes disponibles"
 
+#. translators: privacy policy url
+#: includes/classes/wp-maintenance-mode-admin.php:718
+msgid "The plugin detected this Privacy page: %s – <button>Use this url</button>"
+msgstr "El plugin ha detectado esta página de privacidad: %s – <button>Usar esta URL</button>"
+
+#: includes/classes/wp-maintenance-mode-admin.php:118
+msgctxt "image_uploader default button_text"
+msgid "Choose Image"
+msgstr "Elegir una imagen"
+
+#: includes/classes/wp-maintenance-mode-admin.php:117
+msgctxt "image_uploader default title"
+msgid "Upload Image"
+msgstr "Subir una imagen"
+
 #: includes/classes/wp-maintenance-mode.php:1075
 msgid "Something happened! Please try again later."
 msgstr "¡Algo ha ocurrido! Por favor, inténtalo de nuevo más tarde."
@@ -149,24 +160,41 @@ msgctxt "<title> default"
 msgid "Maintenance mode"
 msgstr "Modo de mantenimiento"
 
-#. translators: privacy policy url
-#: includes/classes/wp-maintenance-mode-admin.php:726
-msgid "The plugin detected this Privacy page: %s – <button>Use this url</button>"
-msgstr "El plugin ha detectado esta página de privacidad: %s – <button>Usar esta URL</button>"
-
-#: includes/classes/wp-maintenance-mode-admin.php:118
-msgctxt "image_uploader default button_text"
-msgid "Choose Image"
-msgstr "Elegir una imagen"
-
-#: includes/classes/wp-maintenance-mode-admin.php:117
-msgctxt "image_uploader default title"
-msgid "Upload Image"
-msgstr "Subir una imagen"
+#: views/sidebar.php:36
+msgid "Recommended"
+msgstr "Recomendado"
 
 #: views/settings.php:648
 msgid "If you want to see the list of subscribers, go to Modules &raquo; Subscribe &raquo; Export as CSV."
 msgstr "Si quieres ver la lista de suscriptores, ve a «Módulos &raquo; Suscripción &raquo; Exportar como CSV»."
+
+#: views/settings.php:873
+msgid "Choose how the link will open."
+msgstr "Elige cómo se abrirá el enlace."
+
+#: views/settings.php:866
+msgid "P. Policy link target"
+msgstr "Destino del enlace a la política de privacidad"
+
+#: views/settings.php:601
+msgid "Enable IP anonymization?"
+msgstr "¿Activar el anonimato de IP?"
+
+#. translators: number of subscribers
+#: views/settings.php:428
+msgctxt "settings page"
+msgid "You have %d subscriber"
+msgid_plural "You have %d subscribers"
+msgstr[0] "Tienes %d suscriptor"
+msgstr[1] "Tienes %s suscriptores"
+
+#. translators: number of subscribers
+#: includes/classes/wp-maintenance-mode-admin.php:202
+msgctxt "ajax response"
+msgid "You have %d subscriber"
+msgid_plural "You have %d subscribers"
+msgstr[0] "Tienes %d suscriptor"
+msgstr[1] "Tienes %s suscriptores"
 
 #: views/settings.php:887
 msgid "Subscribe form 'tail'"
@@ -179,14 +207,6 @@ msgstr "Esto se mostrará debajo del formulario, junto con la casilla de verific
 #: views/settings.php:878
 msgid "Contact form 'tail'"
 msgstr "Coletilla del formulario de contacto"
-
-#: views/settings.php:873
-msgid "Choose how the link will open."
-msgstr "Elige cómo se abrirá el enlace."
-
-#: views/settings.php:866
-msgid "P. Policy link target"
-msgstr "Destino del enlace a la política de privacidad"
 
 #: views/settings.php:856
 msgid "P. Policy page link"
@@ -207,6 +227,38 @@ msgstr "Aquí hemos añadido algunos textos genéricos que es posible que quiera
 #: views/settings.php:832
 msgid "To make the plugin GDPR compliant, fill in the details and enable this section."
 msgstr "Para que el plugin sea compatible con el RGPD, completa los datos y activa esta sección."
+
+#: views/settings.php:48
+msgid "GDPR"
+msgstr "RGPD"
+
+#: includes/classes/wp-maintenance-mode.php:191
+msgid "This form collects your email so that we can add you to our newsletter list. Check out our <a href=\"#\">Privacy Policy</a> page to fully understand how we protect and manage your submitted data."
+msgstr "Este formulario recopila tu correo electrónico para poder añadirte a la lista de nuestro boletín de noticias. Revisa nuestra página de <a href=\"#\">Política de privacidad</a> para entender completamente cómo protegemos y gestionamos los datos enviados."
+
+#: includes/classes/wp-maintenance-mode.php:190
+msgid "This form collects your name and email so that we can reach you back. Check out our <a href=\"#\">Privacy Policy</a> page to fully understand how we protect and manage your submitted data."
+msgstr "Este formulario recopila tu nombre y correo electrónico para poder ponernos en contacto contigo. Revisa nuestra página de <a href=\"#\">Política de privacidad</a> para entender completamente cómo protegemos y gestionamos los datos enviados."
+
+#: includes/classes/wp-maintenance-mode.php:187
+msgid "Privacy Policy"
+msgstr "Política de privacidad"
+
+#: includes/classes/wp-maintenance-mode-admin.php:727
+msgid "No privacy features detected for your WordPress version. Update WordPress to get this field automatically filled in or type in the URL that points to your privacy policy page."
+msgstr "No se han detectado características de privacidad para tu versión de WordPress. Actualiza WordPress para que este campo se rellene automáticamente o escribe la URL que apunta a tu página de política de privacidad."
+
+#: includes/classes/wp-maintenance-mode-admin.php:724
+msgid "Your Privacy page is pointing to a different URL in WordPress settings. If that's correct ignore this message, otherwise UPDATE VALUE TO NEW URL"
+msgstr "Tu página de privacidad apunta a una URL diferente en los ajustes de WordPress. Si eso es correcto, ignora este mensaje, de lo contrario, ACTUALIZA EL VALOR A UNA NUEVA URL"
+
+#: includes/classes/wp-maintenance-mode-admin.php:714
+msgid "Your WordPress version supports Privacy settings but you haven't set any privacy policy page yet. Go to Settings ➡ Privacy to set one."
+msgstr "Tu versión de WordPress es compatible con los ajustes de privacidad, pero aún no has establecido ninguna página de política de privacidad. Para establecer una, ve a «Ajustes ➡ Privacidad»."
+
+#: views/settings.php:235
+msgid "This text will not be shown when the bot feature is enabled."
+msgstr "Este texto no se mostrará cuando esté activa la característica del robot."
 
 #: views/settings.php:812
 msgid "Message 10"
@@ -301,56 +353,12 @@ msgid "You may also want to use these wildcards: {bot_name} and {visitor_name} t
 msgstr "También puedes usar estos comodines: `{bot_name}` y `{visitor_name}` para hacer la conversación más realista."
 
 #: views/settings.php:645
-msgid "Setup the conversation steps to capture more subscribers with this friendly way of asking email addresess."
+msgid "Setup the conversation steps to capture more subscribers with this friendly way of asking email addresses."
 msgstr "Configura los pasos de la conversación para capturar más suscriptores con este modo amistoso de pedir direcciones de correo electrónico."
-
-#: views/settings.php:601
-msgid "Enable IP anonymization?"
-msgstr "¿Activar el anonimato de IP?"
-
-#. translators: number of subscribers
-#: views/settings.php:428
-msgctxt "settings page"
-msgid "You have %d subscriber"
-msgid_plural "You have %d subscribers"
-msgstr[0] "Tienes %d suscriptor"
-msgstr[1] "Tienes %s suscriptores"
-
-#: views/settings.php:235
-msgid "This text will not be shown when the bot feature is enabled."
-msgstr "Este texto no se mostrará cuando esté activa la característica del robot."
-
-#: views/settings.php:48
-msgid "GDPR"
-msgstr "RGPD"
 
 #: views/settings.php:41
 msgid "Manage Bot"
 msgstr "Gestionar el robot"
-
-#: includes/classes/wp-maintenance-mode-admin.php:735
-msgid "No privacy features detected for your WordPress version. Update WordPress to get this field automatically filled in or type in the URL that points to your privacy policy page."
-msgstr "No se han detectado características de privacidad para tu versión de WordPress. Actualiza WordPress para que este campo se rellene automáticamente o escribe la URL que apunta a tu página de política de privacidad."
-
-#: includes/classes/wp-maintenance-mode-admin.php:732
-msgid "Your Privacy page is pointing to a different URL in WordPress settings. If that's correct ignore this message, otherwise UPDATE VALUE TO NEW URL"
-msgstr "Tu página de privacidad apunta a una URL diferente en los ajustes de WordPress. Si eso es correcto, ignora este mensaje, de lo contrario, ACTUALIZA EL VALOR A UNA NUEVA URL"
-
-#: includes/classes/wp-maintenance-mode-admin.php:722
-msgid "Your WordPress version supports Privacy settings but you haven't set any privacy policy page yet. Go to Settings ➡ Privacy to set one."
-msgstr "Tu versión de WordPress es compatible con los ajustes de privacidad, pero aún no has establecido ninguna página de política de privacidad. Para establecer una, ve a «Ajustes ➡ Privacidad»."
-
-#: includes/classes/wp-maintenance-mode-admin.php:535
-msgid "WPMM: The file data.js could not be written, the bot will not work correctly."
-msgstr "WPMM: No se ha podido escribir en el archivo «data.js». El robot no funcionará correctamente."
-
-#. translators: number of subscribers
-#: includes/classes/wp-maintenance-mode-admin.php:202
-msgctxt "ajax response"
-msgid "You have %d subscriber"
-msgid_plural "You have %d subscribers"
-msgstr[0] "Tienes %d suscriptor"
-msgstr[1] "Tienes %s suscriptores"
 
 #: includes/classes/wp-maintenance-mode.php:656
 msgid "Please type in a valid email address."
@@ -359,18 +367,6 @@ msgstr "Por favor, escribe un correo electrónico válido."
 #: includes/classes/wp-maintenance-mode.php:655
 msgid "Please type in your name."
 msgstr "Por favor, escribe tu nombre."
-
-#: includes/classes/wp-maintenance-mode.php:191
-msgid "This form collects your email so that we can add you to our newsletter list. Check out our <a href=\"#\">Privacy Policy</a> page to fully understand how we protect and manage your submitted data."
-msgstr "Este formulario recopila tu correo electrónico para poder añadirte a la lista de nuestro boletín de noticias. Revisa nuestra página de <a href=\"#\">Política de privacidad</a> para entender completamente cómo protegemos y gestionamos los datos enviados."
-
-#: includes/classes/wp-maintenance-mode.php:190
-msgid "This form collects your name and email so that we can reach you back. Check out our <a href=\"#\">Privacy Policy</a> page to fully understand how we protect and manage your submitted data."
-msgstr "Este formulario recopila tu nombre y correo electrónico para poder ponernos en contacto contigo. Revisa nuestra página de <a href=\"#\">Política de privacidad</a> para entender completamente cómo protegemos y gestionamos los datos enviados."
-
-#: includes/classes/wp-maintenance-mode.php:187
-msgid "Privacy Policy"
-msgstr "Política de privacidad"
 
 #: includes/classes/wp-maintenance-mode.php:182
 #: includes/classes/wp-maintenance-mode.php:659
@@ -434,6 +430,10 @@ msgstr "Tengo solo un par de preguntas."
 msgid "Hey! My name is {bot_name}, I'm the owner of this website and I'd like to be your assistant here."
 msgstr "¡Hola! Mi nombre es {bot_name}, soy el propietario de esta web y me gustaría ser tu asistente aquí."
 
+#: includes/classes/wp-maintenance-mode-admin.php:535
+msgid "WPMM: The file data.js could not be written, the bot will not work correctly."
+msgstr "WPMM: No se ha podido escribir en el archivo «data.js». El robot no funcionará correctamente."
+
 #: views/settings.php:628
 msgid "Allowed formats: UA-XXXXXXXX, UA-XXXXXXXX-XXXX, G-XXXXXXXX. Eg: UA-12345678-1 is valid"
 msgstr "Formatos permitidos: UA-XXXXXXXX, UA-XXXXXXXX-XXXX, G-XXXXXXXX. Ejemplo: UA-12345678-1 es válido"
@@ -449,7 +449,7 @@ msgid "The nonce field must not be empty."
 msgstr "El campo nonce no debe estar vacío."
 
 #. translators: link to plugin reviews page on wp.org
-#: includes/classes/wp-maintenance-mode-admin.php:683
+#: includes/classes/wp-maintenance-mode-admin.php:675
 msgid "If you like <strong>WP Maintenance Mode</strong> please leave us a %s rating. A huge thank you from WP Maintenance Mode makers in advance!"
 msgstr "Si te gusta <strong>WP Maintenance Mode</strong>, por favor, déjanos una valoración de %s. ¡Gracias anticipadas de los creadores de WP Maintenance Mode!"
 
@@ -458,16 +458,16 @@ msgid "Empty subscribers list"
 msgstr "Lista de subscriptores vacía"
 
 #: views/settings.php:122
-msgid "If you want to redirect a user (with no access to Dashboard/Backend) to a URL (different from WordPress Dashboard URL) after login, then define a URL (incl. http://)"
-msgstr "Si quieres redirigir a un usuario (sin acceso al panel de control) a una URL (diferente de la URL del panel de control de WordPress) después del acceso, entonces escribe una URL (incluido https://)"
+msgid "If you want to redirect a user (with no access to Dashboard/Backend) to a URL (different from WordPress Dashboard URL) after login, then define a URL (incl. https://)"
+msgstr "Si quieres redirigir al usuario (sin acceso al escritorio/administración) a una URL (diferente de la URL del escritorio de WordPress) después del acceso, entonces escribe una URL (incluido https://)"
 
 #: views/settings.php:101
-msgid "Which user role is allowed to access the frontend of this blog? Administrators will always have access."
-msgstr "¿Qué tipo de perfil de usuario podrá acceder a la portada de este blog? Los administradores siempre tendrán acceso."
+msgid "Which user role is allowed to access the frontend of the website? Administrators will always have access."
+msgstr "¿Qué tipo de perfil de usuario podrá acceder a la portada de esta web? Los administradores siempre tendrán acceso."
 
 #: views/settings.php:88
-msgid "Which user role is allowed to access the backend of this blog? Administrators will always have access."
-msgstr "¿Qué tipo de perfil de usuario podrá acceder a la administración de este blog? Los administradores siempre tendrán acceso."
+msgid "Which user role is allowed to access the backend of the website? Administrators will always have access."
+msgstr "¿Qué tipo de perfil de usuario podrá acceder a la administración de esta web? Los administradores siempre tendrán acceso."
 
 #: views/settings.php:83 views/settings.php:96
 msgid "Select role(s)"
@@ -496,7 +496,7 @@ msgstr "Nombre:"
 msgid "You have been contacted via %s."
 msgstr "Has sido contactado a través de %s."
 
-#: includes/classes/wp-maintenance-mode-admin.php:635
+#: includes/classes/wp-maintenance-mode-admin.php:627
 msgid "Notice key cannot be empty."
 msgstr "La clave del aviso no puede estar vacía."
 
@@ -517,18 +517,9 @@ msgstr "El slug de la pestaña no debe estar vacío."
 msgid "You do not have access to this resource."
 msgstr "No tienes acceso a este recurso."
 
-#. Author of the plugin
-msgid "Designmodo"
-msgstr "Designmodo"
-
 #. Description of the plugin
 msgid "Adds a splash page to your site that lets visitors know your site is down for maintenance. It's perfect for a coming soon page."
 msgstr "Añade una página de aterrizaje a tu sitio que permite a los visitantes saber que tu sitio está en mantenimiento. Es perfecta para una página de «Próximamente»."
-
-#. Plugin URI of the plugin
-#. Author URI of the plugin
-msgid "https://designmodo.com/"
-msgstr "https://designmodo.com/"
 
 #: views/sidebar.php:25
 msgid "GitHub"
@@ -896,7 +887,6 @@ msgstr "El modo de mantenimiento está <strong>activo</strong>. Por favor, no ol
 msgid "Settings"
 msgstr "Ajustes"
 
-#. Plugin Name of the plugin
 #: includes/classes/wp-maintenance-mode-admin.php:217
 #: includes/classes/wp-maintenance-mode-admin.php:218
 msgid "WP Maintenance Mode"

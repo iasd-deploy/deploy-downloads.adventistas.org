@@ -84,7 +84,7 @@ if ( ! class_exists( 'WP_Maintenance_Mode_Admin' ) ) {
 				$wp_scripts = wp_scripts();
 				$ui         = $wp_scripts->query( 'jquery-ui-core' );
 
-				wp_enqueue_style( $this->plugin_slug . '-admin-jquery-ui-styles', '//ajax.googleapis.com/ajax/libs/jqueryui/' . ( ! empty( $ui->ver ) ? $ui->ver : '1.11.4' ) . '/themes/smoothness/jquery-ui' . WPMM_ASSETS_SUFFIX . '.css', array(), WP_Maintenance_Mode::VERSION );
+				wp_enqueue_style( $this->plugin_slug . '-admin-jquery-ui-styles', '//code.jquery.com/ui/' . ( ! empty( $ui->ver ) ? $ui->ver : '1.11.4' ) . '/themes/smoothness/jquery-ui' . WPMM_ASSETS_SUFFIX . '.css', array(), WP_Maintenance_Mode::VERSION );
 				wp_enqueue_style( $this->plugin_slug . '-admin-chosen', WPMM_CSS_URL . 'chosen' . WPMM_ASSETS_SUFFIX . '.css', array(), WP_Maintenance_Mode::VERSION );
 				wp_enqueue_style( $this->plugin_slug . '-admin-timepicker-addon-script', WPMM_CSS_URL . 'jquery-ui-timepicker-addon' . WPMM_ASSETS_SUFFIX . '.css', array(), WP_Maintenance_Mode::VERSION );
 				wp_enqueue_style( $this->plugin_slug . '-admin-styles', WPMM_CSS_URL . 'style-admin' . WPMM_ASSETS_SUFFIX . '.css', array( 'wp-color-picker' ), WP_Maintenance_Mode::VERSION );
@@ -605,14 +605,6 @@ if ( ! class_exists( 'WP_Maintenance_Mode_Admin' ) ) {
 			} else {
 				// delete wpmm_notice
 				delete_option( 'wpmm_notice' );
-
-				// notice for blocksy
-				ob_start();
-				include_once wpmm_get_template_path( 'promo-blocksy.php' );
-				$notices['promo-blocksy'] = array(
-					'class' => 'wpmm_notices updated notice is-dismissible',
-					'msg'   => ob_get_clean(),
-				);
 			}
 
 			// get dismissed notices

@@ -85,7 +85,7 @@ defined( 'ABSPATH' ) || exit;
 												<option value="<?php echo esc_attr( $role_key ); ?>"<?php echo wpmm_multiselect( (array) $this->plugin_settings['general']['backend_role'], $role_key ); ?>><?php echo esc_html( $role_name ); ?></option>
 											<?php } ?>
 										</select>
-										<p class="description"><?php esc_html_e( 'Which user role is allowed to access the backend of this blog? Administrators will always have access.', 'wp-maintenance-mode' ); ?></p>
+										<p class="description"><?php esc_html_e( 'Which user role is allowed to access the backend of the website? Administrators will always have access.', 'wp-maintenance-mode' ); ?></p>
 									</td>
 								</tr>
 								<tr valign="top">
@@ -98,7 +98,7 @@ defined( 'ABSPATH' ) || exit;
 												<option value="<?php echo esc_attr( $role_key ); ?>"<?php echo wpmm_multiselect( (array) $this->plugin_settings['general']['frontend_role'], $role_key ); ?>><?php echo esc_html( $role_name ); ?></option>
 											<?php } ?>
 										</select>
-										<p class="description"><?php esc_html_e( 'Which user role is allowed to access the frontend of this blog? Administrators will always have access.', 'wp-maintenance-mode' ); ?></p>
+										<p class="description"><?php esc_html_e( 'Which user role is allowed to access the frontend of the website? Administrators will always have access.', 'wp-maintenance-mode' ); ?></p>
 									</td>
 								</tr>
 								<tr valign="top">
@@ -119,7 +119,7 @@ defined( 'ABSPATH' ) || exit;
 									</th>
 									<td>
 										<input type="text" value="<?php echo esc_url( $this->plugin_settings['general']['redirection'] ); ?>" name="options[general][redirection]" />
-										<p class="description"><?php esc_html_e( 'If you want to redirect a user (with no access to Dashboard/Backend) to a URL (different from WordPress Dashboard URL) after login, then define a URL (incl. http://)', 'wp-maintenance-mode' ); ?></p>
+										<p class="description"><?php esc_html_e( 'If you want to redirect a user (with no access to Dashboard/Backend) to a URL (different from WordPress Dashboard URL) after login, then define a URL (incl. https://)', 'wp-maintenance-mode' ); ?></p>
 									</td>
 								</tr>
 								<tr valign="top">
@@ -215,7 +215,7 @@ defined( 'ABSPATH' ) || exit;
 											$hide_shortcodes_text = __( 'Hide available shortcodes', 'wp-maintenance-mode' );
 											$show_shortcodes_text = __( 'See available shortcodes', 'wp-maintenance-mode' );
 											?>
-											<a href="javascript:void(0);" class="button button-small toggle-shortcodes-list" data-hide="<?php echo esc_attr( $hide_shortcodes_text ); ?>" data-show="<?php echo esc_attr( $show_shortcodes_text ); ?>" ><?php echo esc_html( $show_shortcodes_text ); ?></a>											
+											<a href="javascript:void(0);" class="button button-small toggle-shortcodes-list" data-hide="<?php echo esc_attr( $hide_shortcodes_text ); ?>" data-show="<?php echo esc_attr( $show_shortcodes_text ); ?>" ><?php echo esc_html( $show_shortcodes_text ); ?></a>
 
 											<ul class="shortcodes-list">
 												<li>
@@ -280,11 +280,11 @@ defined( 'ABSPATH' ) || exit;
 									<td>
 										<input type="text" value="<?php echo esc_url( $this->plugin_settings['design']['bg_custom'] ); ?>" name="options[design][bg_custom]" class="background_url" />
 										<input
-											type="button" 
-											value="<?php echo esc_attr_x( 'Upload', 'upload background button', 'wp-maintenance-mode' ); ?>" 
-											class="button image_uploader_trigger" 
-											data-name="background" 
-											data-title="<?php esc_attr_e( 'Upload Background', 'wp-maintenance-mode' ); ?>" 
+											type="button"
+											value="<?php echo esc_attr_x( 'Upload', 'upload background button', 'wp-maintenance-mode' ); ?>"
+											class="button image_uploader_trigger"
+											data-name="background"
+											data-title="<?php esc_attr_e( 'Upload Background', 'wp-maintenance-mode' ); ?>"
 											data-button-text="<?php esc_attr_e( 'Choose Background', 'wp-maintenance-mode' ); ?>"
 											data-to-selector=".background_url"
 											/>
@@ -295,7 +295,7 @@ defined( 'ABSPATH' ) || exit;
 									<th scope="row">
 										<label for="options[design][bg_predefined]"><?php esc_html_e( 'Choose background', 'wp-maintenance-mode' ); ?></label>
 
-										<p class="description">                                                                              
+										<p class="description">
 											<?php
 											printf(
 												wp_kses(
@@ -303,7 +303,7 @@ defined( 'ABSPATH' ) || exit;
 													__( '* source <a href="%s" target="_blank">Free Photos</a>', 'wp-maintenance-mode' ),
 													wpmm_translated_string_allowed_html()
 												),
-												esc_url( wpmm_get_utmized_url( 'http://designmodo.com/free-photos/', array( 'source' => 'settings' ) ) )
+												esc_url( wpmm_get_utmized_url( 'https://themeisle.com/blog/wordpress-stock-photos/', array( 'source' => 'settings' ) ) )
 											);
 											?>
 										</p>
@@ -512,7 +512,7 @@ defined( 'ABSPATH' ) || exit;
 									<th scope="row">
 										<label for="options[modules][social_instagram]">Instagram</label>
 									</th>
-									<td>    
+									<td>
 										<input type="text" value="<?php echo esc_attr( $this->plugin_settings['modules']['social_instagram'] ); ?>" name="options[modules][social_instagram]" />
 									</td>
 								</tr>
@@ -642,7 +642,7 @@ defined( 'ABSPATH' ) || exit;
 							<tbody>
 								<tr valign="top">
 									<td colspan="2">
-										<h4><?php esc_html_e( 'Setup the conversation steps to capture more subscribers with this friendly way of asking email addresess.', 'wp-maintenance-mode' ); ?></h4>
+										<h4><?php esc_html_e( 'Setup the conversation steps to capture more subscribers with this friendly way of asking email addresses.', 'wp-maintenance-mode' ); ?></h4>
 										<p><?php esc_html_e( 'You may also want to use these wildcards: {bot_name} and {visitor_name} to make the conversation even more realistic.', 'wp-maintenance-mode' ); ?></p>
 										<p><?php esc_html_e( 'It is also ok if you don\'t fill in all the conversation steps if you don\'t need to.', 'wp-maintenance-mode' ); ?></p>
 										<p><?php esc_html_e( 'If you want to see the list of subscribers, go to Modules &raquo; Subscribe &raquo; Export as CSV.', 'wp-maintenance-mode' ); ?></p>
@@ -673,11 +673,11 @@ defined( 'ABSPATH' ) || exit;
 									<td>
 										<input type="text" value="<?php echo esc_url( $this->plugin_settings['bot']['avatar'] ); ?>" name="options[bot][avatar]" id="options[bot][avatar]" class="avatar_url" />
 										<input
-											type="button" 
-											value="<?php echo esc_attr_x( 'Upload', 'upload avatar button', 'wp-maintenance-mode' ); ?>" 
-											class="button image_uploader_trigger" 
-											data-name="avatar" 
-											data-title="<?php esc_attr_e( 'Upload Avatar', 'wp-maintenance-mode' ); ?>" 
+											type="button"
+											value="<?php echo esc_attr_x( 'Upload', 'upload avatar button', 'wp-maintenance-mode' ); ?>"
+											class="button image_uploader_trigger"
+											data-name="avatar"
+											data-title="<?php esc_attr_e( 'Upload Avatar', 'wp-maintenance-mode' ); ?>"
 											data-button-text="<?php esc_attr_e( 'Choose picture', 'wp-maintenance-mode' ); ?>"
 											data-to-selector=".avatar_url"
 											/>
