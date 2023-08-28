@@ -8,3 +8,4 @@ task-definition.json
 **/pa-theme*
 
 **/node_modules
+docker-compose.yml
