@@ -52,6 +52,8 @@ define('PA_LANG', true);
 // Ativa a lixeira das midias
 define('MEDIA_TRASH', true);
 
+define('WP_MEMORY_LIMIT', '256M');
+
 /* Multisite */
 define('WP_ALLOW_MULTISITE', true);
 define('MULTISITE', true);
@@ -127,3 +129,4 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
