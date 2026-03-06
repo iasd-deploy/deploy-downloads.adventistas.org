@@ -49,6 +49,8 @@ define('FORCE_SSL_ADMIN', true);
 $_SERVER['HTTPS'] = 'on';
 define('PA_LANG', true);
 
+define('WP_MEMORY_LIMIT', '256M');
+
 // Ativa a lixeira das midias
 define('MEDIA_TRASH', true);
 
@@ -127,3 +129,4 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
